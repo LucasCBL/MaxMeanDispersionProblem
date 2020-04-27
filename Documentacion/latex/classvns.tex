@@ -1,0 +1,224 @@
+\hypertarget{classvns}{}\doxysection{vns Class Reference}
+\label{classvns}\index{vns@{vns}}
+
+
+Variable Neighbour Search algorithm for max mean dispersion problem.  
+
+
+
+
+{\ttfamily \#include $<$vns-\/algorithm.\+hpp$>$}
+
+Inheritance diagram for vns\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvns}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvns_ac53b1d5da4f04dcb88dbfc6a631c18e9}{vns}} (\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} problem, int max\+Iter, int max\+No\+Imp\+Iter, float kmax=2, bool anxious=false)
+\begin{DoxyCompactList}\small\item\em Construct a new vns algorithm object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classvns_aeceacfdcf61ac39e8dd576e4435823ab}{solve}} ()
+\begin{DoxyCompactList}\small\item\em solve function for the vns algorithm, it works by generating a random solution, and then generating a random solution in the k neighbourhood of the current solution, which is +-\/k size of the current solution in this case, and then does a local\+Search for that solution, if it reaches a better solution than the current k resets to one and the current solution changes to the new one, it does this until kmax is reached, then repeats this until a stop condition is reached \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classvns_a5c5c8ee8e3ea460b8ad767425f63f397}{construct\+Solution}} (std\+::vector$<$ int $>$ candidates, int solution\+Size)
+\begin{DoxyCompactList}\small\item\em constructs a new random solution for a determined size \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classvns_ae8c7e38fcb43bae4c6603340886c9fb6}{shake}} (std\+::vector$<$ int $>$ candidates, int solution\+Size, int k)
+\begin{DoxyCompactList}\small\item\em calls construct\+Solution with a size in the K neighbourhood \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classvns_a12966da7c5930e26f6d00ad7c9754a28}{local\+Search}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution, std\+::vector$<$ int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em Local search algorithm, it uses two greedy algorithms previously implemented, a destructive greedy (deletes the node which makes the solution better) and a constructive one(searches for a node which when added improves the solution) and executes both one after the other until both of them return -\/1, which means both of them didnt find any way to improve the solution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classvns_af26c6dfe19881968a5db6f40fc7bbe43}{get\+Worst\+Md\+Node}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} actual\+Solution)
+\begin{DoxyCompactList}\small\item\em returns the worst node found in the current solution, if deleting any node doesnt improve the solution it returns -\/1 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classvns_aa8c351b70dbdcb70b4ed05ae1b2bbbad}{get\+Max\+Md\+Node}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} actual\+Solution, std\+::vector$<$ int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Variable Neighbour Search algorithm for max mean dispersion problem. 
+
+
+
+Definition at line 25 of file vns-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvns_ac53b1d5da4f04dcb88dbfc6a631c18e9}\label{classvns_ac53b1d5da4f04dcb88dbfc6a631c18e9}} 
+\index{vns@{vns}!vns@{vns}}
+\index{vns@{vns}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{vns()}{vns()}}
+{\footnotesize\ttfamily vns\+::vns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}}}]{problem,  }\item[{int}]{max\+Iter,  }\item[{int}]{max\+No\+Imp\+Iter,  }\item[{float}]{kmax = {\ttfamily 2},  }\item[{bool}]{anxious = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new vns algorithm object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & problem to solve, can be changed dinamically by using set\+Porblem \\
+\hline
+{\em max\+Iter} & maximum number of iterations \\
+\hline
+{\em max\+No\+Imp\+Iter} & maximum number of iterations without improvement \\
+\hline
+{\em kmax} & number of max neightbourhoods to explore in each iteration \\
+\hline
+{\em anxious} & boolean to activate anxious mode, by default its false \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file vns-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvns_a5c5c8ee8e3ea460b8ad767425f63f397}\label{classvns_a5c5c8ee8e3ea460b8ad767425f63f397}} 
+\index{vns@{vns}!constructSolution@{constructSolution}}
+\index{constructSolution@{constructSolution}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{constructSolution()}{constructSolution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} vns\+::construct\+Solution (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{candidates,  }\item[{int}]{solution\+Size }\end{DoxyParamCaption})}
+
+
+
+constructs a new random solution for a determined size 
+
+
+\begin{DoxyParams}{Parameters}
+{\em candidates} & candidate nodes \\
+\hline
+{\em solution\+Size} & target size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} generated solution 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file vns-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classvns_aa8c351b70dbdcb70b4ed05ae1b2bbbad}\label{classvns_aa8c351b70dbdcb70b4ed05ae1b2bbbad}} 
+\index{vns@{vns}!getMaxMdNode@{getMaxMdNode}}
+\index{getMaxMdNode@{getMaxMdNode}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{getMaxMdNode()}{getMaxMdNode()}}
+{\footnotesize\ttfamily int vns\+::get\+Max\+Md\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{actual\+Solution,  }\item[{std\+::vector$<$ int $>$}]{candidates }\end{DoxyParamCaption})}
+
+
+
+returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual\+Solution} & solution to improve \\
+\hline
+{\em candidates} & nodes to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int node or -\/1 if the solution doesnt improve 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file vns-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classvns_af26c6dfe19881968a5db6f40fc7bbe43}\label{classvns_af26c6dfe19881968a5db6f40fc7bbe43}} 
+\index{vns@{vns}!getWorstMdNode@{getWorstMdNode}}
+\index{getWorstMdNode@{getWorstMdNode}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{getWorstMdNode()}{getWorstMdNode()}}
+{\footnotesize\ttfamily int vns\+::get\+Worst\+Md\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{actual\+Solution }\end{DoxyParamCaption})}
+
+
+
+returns the worst node found in the current solution, if deleting any node doesnt improve the solution it returns -\/1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual\+Solution} & solution to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int node or -\/1 if the solution doesnt improve 
+\end{DoxyReturn}
+
+
+Definition at line 127 of file vns-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classvns_a12966da7c5930e26f6d00ad7c9754a28}\label{classvns_a12966da7c5930e26f6d00ad7c9754a28}} 
+\index{vns@{vns}!localSearch@{localSearch}}
+\index{localSearch@{localSearch}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{localSearch()}{localSearch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} vns\+::local\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution,  }\item[{std\+::vector$<$ int $>$}]{candidates }\end{DoxyParamCaption})}
+
+
+
+Local search algorithm, it uses two greedy algorithms previously implemented, a destructive greedy (deletes the node which makes the solution better) and a constructive one(searches for a node which when added improves the solution) and executes both one after the other until both of them return -\/1, which means both of them didnt find any way to improve the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & initial solution \\
+\hline
+{\em candidates} & posible nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} local optimum to the provided solution 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file vns-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classvns_ae8c7e38fcb43bae4c6603340886c9fb6}\label{classvns_ae8c7e38fcb43bae4c6603340886c9fb6}} 
+\index{vns@{vns}!shake@{shake}}
+\index{shake@{shake}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{shake()}{shake()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} vns\+::shake (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{candidates,  }\item[{int}]{solution\+Size,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+calls construct\+Solution with a size in the K neighbourhood 
+
+
+\begin{DoxyParams}{Parameters}
+{\em candidates} & candidate nodes \\
+\hline
+{\em solution\+Size} & current solution \\
+\hline
+{\em k} & k neighbourhood \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file vns-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classvns_aeceacfdcf61ac39e8dd576e4435823ab}\label{classvns_aeceacfdcf61ac39e8dd576e4435823ab}} 
+\index{vns@{vns}!solve@{solve}}
+\index{solve@{solve}!vns@{vns}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} vns\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+solve function for the vns algorithm, it works by generating a random solution, and then generating a random solution in the k neighbourhood of the current solution, which is +-\/k size of the current solution in this case, and then does a local\+Search for that solution, if it reaches a better solution than the current k resets to one and the current solution changes to the new one, it does this until kmax is reached, then repeats this until a stop condition is reached 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} best found solution 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classalgorithm_af53deb1ade5a4fd960e616d6b8d6588e}{algorithm}}.
+
+
+
+Definition at line 24 of file vns-\/algorithm.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{vns-algorithm_8hpp}{vns-\/algorithm.\+hpp}}\item 
+src/\mbox{\hyperlink{vns-algorithm_8cpp}{vns-\/algorithm.\+cpp}}\end{DoxyCompactItemize}

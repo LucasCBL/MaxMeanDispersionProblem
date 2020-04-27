@@ -1,0 +1,220 @@
+\hypertarget{classgrasp}{}\doxysection{grasp Class Reference}
+\label{classgrasp}\index{grasp@{grasp}}
+
+
+grasp algorithm for solving max mean dispersion problems.  
+
+
+
+
+{\ttfamily \#include $<$grasp-\/algorithm.\+hpp$>$}
+
+Inheritance diagram for grasp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgrasp}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgrasp_a507269024fa682bfb889b0ce2fc4e796}{grasp}} (\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} problem, int max\+Iter, int max\+No\+Imp\+Iter, float alpha=0.\+20, bool anxious=false)
+\begin{DoxyCompactList}\small\item\em Construct a new grasp solver object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classgrasp_a267d4b6736a49243d0e70a18485cf28e}{solve}} ()
+\begin{DoxyCompactList}\small\item\em Solve function implementation for grasp, it works by iterating until one of its stop conditions is reached a loop of \mbox{\hyperlink{classgrasp_ade8177e516cbc33b0afcaaa4723986fe}{construction\+Phase()}} and \mbox{\hyperlink{classgrasp_a68244e659c9e134d18b628f312f0b95f}{local\+Search()}} to generate and optimize solutions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classgrasp_ade8177e516cbc33b0afcaaa4723986fe}{construction\+Phase}} (std\+::vector$<$ int $>$ initial\+Candidates)
+\begin{DoxyCompactList}\small\item\em Function to create a new solution using R\+CL, and selecting a random element from it until the solution reaches a size previously selected at random. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classgrasp_aa845c6ad21a3a5ea3722dec32aa0c6a2}{make\+R\+CL}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution, std\+::vector$<$ int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em Funtion to create a R\+CL array based on an initial solution, returns remaining\+Nodes $\ast$ alpha elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classgrasp_a68244e659c9e134d18b628f312f0b95f}{local\+Search}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution, std\+::vector$<$ int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em Local search algorithm, it uses two greedy algorithms previously implemented, a destructive greedy (deletes the node which makes the solution better) and a constructive one(searches for a node which when added improves the solution) and executes both one after the other until both of them return -\/1, which means both of them didnt find any way to improve the solution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgrasp_a6f899a727d69010478c0a0644cd64d12}{get\+Worst\+Md\+Node}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} actual\+Solution)
+\begin{DoxyCompactList}\small\item\em returns the worst node found in the current solution, if deleting any node doesnt improve the solution it returns -\/1 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgrasp_a6354492809322fbacbf3b1c0bd2e386b}{get\+Max\+Md\+Node}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} actual\+Solution, std\+::vector$<$ int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+grasp algorithm for solving max mean dispersion problems. 
+
+
+
+Definition at line 25 of file grasp-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgrasp_a507269024fa682bfb889b0ce2fc4e796}\label{classgrasp_a507269024fa682bfb889b0ce2fc4e796}} 
+\index{grasp@{grasp}!grasp@{grasp}}
+\index{grasp@{grasp}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{grasp()}{grasp()}}
+{\footnotesize\ttfamily grasp\+::grasp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}}}]{problem,  }\item[{int}]{max\+Iter,  }\item[{int}]{max\+No\+Imp\+Iter,  }\item[{float}]{alpha = {\ttfamily 0.20},  }\item[{bool}]{anxious = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new grasp solver object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & problem to solve, can be changed dinamically by using set\+Porblem \\
+\hline
+{\em max\+Iter} & maximum number of iterations \\
+\hline
+{\em max\+No\+Imp\+Iter} & maximum number of iterations without improvement \\
+\hline
+{\em alpha} & number from 0 to 1 that represents the proportion of the rcl array to return, the formila for the return array size is currentsize / (1 / alpha) which equates to currentsize $\ast$ alpha \\
+\hline
+{\em anxious} & boolean to activate anxious mode, by default its false \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file grasp-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgrasp_ade8177e516cbc33b0afcaaa4723986fe}\label{classgrasp_ade8177e516cbc33b0afcaaa4723986fe}} 
+\index{grasp@{grasp}!constructionPhase@{constructionPhase}}
+\index{constructionPhase@{constructionPhase}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{constructionPhase()}{constructionPhase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} grasp\+::construction\+Phase (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{initial\+Candidates }\end{DoxyParamCaption})}
+
+
+
+Function to create a new solution using R\+CL, and selecting a random element from it until the solution reaches a size previously selected at random. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+Candidates} & nodes that can be included in the solution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} generated solution 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file grasp-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgrasp_a6354492809322fbacbf3b1c0bd2e386b}\label{classgrasp_a6354492809322fbacbf3b1c0bd2e386b}} 
+\index{grasp@{grasp}!getMaxMdNode@{getMaxMdNode}}
+\index{getMaxMdNode@{getMaxMdNode}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{getMaxMdNode()}{getMaxMdNode()}}
+{\footnotesize\ttfamily int grasp\+::get\+Max\+Md\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{actual\+Solution,  }\item[{std\+::vector$<$ int $>$}]{candidates }\end{DoxyParamCaption})}
+
+
+
+returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual\+Solution} & solution to improve \\
+\hline
+{\em candidates} & nodes to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int node or -\/1 if the solution doesnt improve 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file grasp-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgrasp_a6f899a727d69010478c0a0644cd64d12}\label{classgrasp_a6f899a727d69010478c0a0644cd64d12}} 
+\index{grasp@{grasp}!getWorstMdNode@{getWorstMdNode}}
+\index{getWorstMdNode@{getWorstMdNode}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{getWorstMdNode()}{getWorstMdNode()}}
+{\footnotesize\ttfamily int grasp\+::get\+Worst\+Md\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{actual\+Solution }\end{DoxyParamCaption})}
+
+
+
+returns the worst node found in the current solution, if deleting any node doesnt improve the solution it returns -\/1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual\+Solution} & solution to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int node or -\/1 if the solution doesnt improve 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file grasp-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgrasp_a68244e659c9e134d18b628f312f0b95f}\label{classgrasp_a68244e659c9e134d18b628f312f0b95f}} 
+\index{grasp@{grasp}!localSearch@{localSearch}}
+\index{localSearch@{localSearch}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{localSearch()}{localSearch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} grasp\+::local\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution,  }\item[{std\+::vector$<$ int $>$}]{candidates }\end{DoxyParamCaption})}
+
+
+
+Local search algorithm, it uses two greedy algorithms previously implemented, a destructive greedy (deletes the node which makes the solution better) and a constructive one(searches for a node which when added improves the solution) and executes both one after the other until both of them return -\/1, which means both of them didnt find any way to improve the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & initial solution \\
+\hline
+{\em candidates} & posible nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} local optimum to the provided solution 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file grasp-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgrasp_aa845c6ad21a3a5ea3722dec32aa0c6a2}\label{classgrasp_aa845c6ad21a3a5ea3722dec32aa0c6a2}} 
+\index{grasp@{grasp}!makeRCL@{makeRCL}}
+\index{makeRCL@{makeRCL}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{makeRCL()}{makeRCL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} grasp\+::make\+R\+CL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution,  }\item[{std\+::vector$<$ int $>$}]{candidates }\end{DoxyParamCaption})}
+
+
+
+Funtion to create a R\+CL array based on an initial solution, returns remaining\+Nodes $\ast$ alpha elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & initial solution \\
+\hline
+{\em candidates} & potential nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} array of R\+CL nodes 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file grasp-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgrasp_a267d4b6736a49243d0e70a18485cf28e}\label{classgrasp_a267d4b6736a49243d0e70a18485cf28e}} 
+\index{grasp@{grasp}!solve@{solve}}
+\index{solve@{solve}!grasp@{grasp}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} grasp\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Solve function implementation for grasp, it works by iterating until one of its stop conditions is reached a loop of \mbox{\hyperlink{classgrasp_ade8177e516cbc33b0afcaaa4723986fe}{construction\+Phase()}} and \mbox{\hyperlink{classgrasp_a68244e659c9e134d18b628f312f0b95f}{local\+Search()}} to generate and optimize solutions. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} the best solution obtained 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classalgorithm_af53deb1ade5a4fd960e616d6b8d6588e}{algorithm}}.
+
+
+
+Definition at line 20 of file grasp-\/algorithm.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{grasp-algorithm_8hpp}{grasp-\/algorithm.\+hpp}}\item 
+src/\mbox{\hyperlink{grasp-algorithm_8cpp}{grasp-\/algorithm.\+cpp}}\end{DoxyCompactItemize}

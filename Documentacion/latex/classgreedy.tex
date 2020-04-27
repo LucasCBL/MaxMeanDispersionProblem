@@ -1,0 +1,110 @@
+\hypertarget{classgreedy}{}\doxysection{greedy Class Reference}
+\label{classgreedy}\index{greedy@{greedy}}
+
+
+constructive greedy algoritm for solving max mean dispersion problems  
+
+
+
+
+{\ttfamily \#include $<$greedy-\/algorithm.\+hpp$>$}
+
+Inheritance diagram for greedy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgreedy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgreedy_a736c3f5aeedd45fe907c250495efc72d}{greedy}} (\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} problem)
+\begin{DoxyCompactList}\small\item\em Construct a new greedy algorithm object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classgreedy_a374c6173a3ba3cb2ba0255eb3eb53dcc}{solve}} ()
+\begin{DoxyCompactList}\small\item\em Solve function, generates an initial solution by taking one pair with the best affinity between themselves, and adds the node returned from get\+Max\+Md until it returns -\/1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgreedy_af2e03a29f956300cb39674e75108bc56}{get\+Max\+Md}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} actual\+Solution)
+\begin{DoxyCompactList}\small\item\em returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+constructive greedy algoritm for solving max mean dispersion problems 
+
+
+
+Definition at line 23 of file greedy-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgreedy_a736c3f5aeedd45fe907c250495efc72d}\label{classgreedy_a736c3f5aeedd45fe907c250495efc72d}} 
+\index{greedy@{greedy}!greedy@{greedy}}
+\index{greedy@{greedy}!greedy@{greedy}}
+\doxysubsubsection{\texorpdfstring{greedy()}{greedy()}}
+{\footnotesize\ttfamily greedy\+::greedy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}}}]{problem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new greedy algorithm object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & max mean dispersion problem to solve, stored inside a distance matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file greedy-\/algorithm.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgreedy_af2e03a29f956300cb39674e75108bc56}\label{classgreedy_af2e03a29f956300cb39674e75108bc56}} 
+\index{greedy@{greedy}!getMaxMd@{getMaxMd}}
+\index{getMaxMd@{getMaxMd}!greedy@{greedy}}
+\doxysubsubsection{\texorpdfstring{getMaxMd()}{getMaxMd()}}
+{\footnotesize\ttfamily int greedy\+::get\+Max\+Md (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{actual\+Solution }\end{DoxyParamCaption})}
+
+
+
+returns the best node found in candidates to add to the solution, if adding any node doesnt improve the solution, it returns -\/1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual\+Solution} & solution to improve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int node or -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file greedy-\/algorithm.\+cpp.
+
+\mbox{\Hypertarget{classgreedy_a374c6173a3ba3cb2ba0255eb3eb53dcc}\label{classgreedy_a374c6173a3ba3cb2ba0255eb3eb53dcc}} 
+\index{greedy@{greedy}!solve@{solve}}
+\index{solve@{solve}!greedy@{greedy}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} greedy\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Solve function, generates an initial solution by taking one pair with the best affinity between themselves, and adds the node returned from get\+Max\+Md until it returns -\/1. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} local optimum 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classalgorithm_af53deb1ade5a4fd960e616d6b8d6588e}{algorithm}}.
+
+
+
+Definition at line 20 of file greedy-\/algorithm.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{greedy-algorithm_8hpp}{greedy-\/algorithm.\+hpp}}\item 
+src/\mbox{\hyperlink{greedy-algorithm_8cpp}{greedy-\/algorithm.\+cpp}}\end{DoxyCompactItemize}

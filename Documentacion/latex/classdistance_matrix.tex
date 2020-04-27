@@ -1,0 +1,352 @@
+\hypertarget{classdistance_matrix}{}\doxysection{distance\+Matrix Class Reference}
+\label{classdistance_matrix}\index{distanceMatrix@{distanceMatrix}}
+
+
+Matrix containing all distances from one node to another, it also contains methods pertaining to getting and calculating other related information from it.  
+
+
+
+
+{\ttfamily \#include $<$distance-\/matrix.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdistance_matrix_a408ee0e76576ea2a35c0b7f317d1bda2}{distance\+Matrix}} (int nodes, std\+::vector$<$ float $>$ data\+Vector)
+\begin{DoxyCompactList}\small\item\em Construct a new distance Matrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdistance_matrix_a969efbe1082781685214cc64a420918c}{distance\+Matrix}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new empty distance Matrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} \mbox{\hyperlink{classdistance_matrix_a7e42ec219b35365a97db50f9307515d2}{operator=}} (\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdistance_matrix_a582462f7885bb650829527aa65e7b241}{print}} ()
+\begin{DoxyCompactList}\small\item\em Method for printing the entire matrix. \end{DoxyCompactList}\item 
+float \& \mbox{\hyperlink{classdistance_matrix_a5c8c788fcf22dfcc41461197ab17c0ec}{at}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em At function for a cell inside the matrix, returns a reference to the cell. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classdistance_matrix_a3d73c4a579daaf20d27615b531a9c9ec}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator, acts as at, but instead returns the vector of distances for a specific node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdistance_matrix_abbcfc3b22a536ce8325e4665a5d13bfe}{set}} (int i, int j, float value)
+\begin{DoxyCompactList}\small\item\em Sets the value of a cell. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classdistance_matrix_a08e183cc9a422c5622f67d8668ca675f}{get}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em returns the value of a cell without any reference \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdistance_matrix_afc0e840ce963b1b6be0375b0faf74fc3}{get\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em Get the amount of nodes making the matrix. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classdistance_matrix_adfc7501136d3f42768a06c05ef9d1f54}{get\+Md}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution)
+\begin{DoxyCompactList}\small\item\em Get the mean dispersion for the given solution. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classdistance_matrix_ab3e29ab7089a1193fac5af5111475cc0}{get\+New\+Md\+Add}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution, float current\+Edge\+Sum, int node)
+\begin{DoxyCompactList}\small\item\em Gets the mean dispersion for the given solution if node was added to it, using the previously calculated sum of edges for the solution. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classdistance_matrix_aac9d05568b3999578e8cc69dec505b62}{get\+New\+Md\+Delete}} (\mbox{\hyperlink{classnode_solution}{node\+Solution}} solution, float current\+Edge\+Sum, int node)
+\begin{DoxyCompactList}\small\item\em Gets the mean dispersion for the given solution if node was deleted from it, using the previously calculated sum of edges for the solution. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} \mbox{\hyperlink{classdistance_matrix_a3d9a28bc8d155be1821444b704eba578}{get\+Max\+Edge}} ()
+\begin{DoxyCompactList}\small\item\em Gets one pair of nodes from the list of nodes with an edge of maximum size. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classdistance_matrix_a5ca5b9d3aa6fd6cf568438836ebe0877}{get\+Posible\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of nodes with any positive value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Matrix containing all distances from one node to another, it also contains methods pertaining to getting and calculating other related information from it. 
+
+
+
+Definition at line 27 of file distance-\/matrix.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdistance_matrix_a408ee0e76576ea2a35c0b7f317d1bda2}\label{classdistance_matrix_a408ee0e76576ea2a35c0b7f317d1bda2}} 
+\index{distanceMatrix@{distanceMatrix}!distanceMatrix@{distanceMatrix}}
+\index{distanceMatrix@{distanceMatrix}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{distanceMatrix()}{distanceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily distance\+Matrix\+::distance\+Matrix (\begin{DoxyParamCaption}\item[{int}]{nodes,  }\item[{std\+::vector$<$ float $>$}]{data\+Vector }\end{DoxyParamCaption})}
+
+
+
+Construct a new distance Matrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & Number of nodes for the matrix \\
+\hline
+{\em data\+Vector} & Vextor containing the necessary data for the matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a969efbe1082781685214cc64a420918c}\label{classdistance_matrix_a969efbe1082781685214cc64a420918c}} 
+\index{distanceMatrix@{distanceMatrix}!distanceMatrix@{distanceMatrix}}
+\index{distanceMatrix@{distanceMatrix}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{distanceMatrix()}{distanceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily distance\+Matrix\+::distance\+Matrix (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new empty distance Matrix object. 
+
+
+
+Definition at line 43 of file distance-\/matrix.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdistance_matrix_a5c8c788fcf22dfcc41461197ab17c0ec}\label{classdistance_matrix_a5c8c788fcf22dfcc41461197ab17c0ec}} 
+\index{distanceMatrix@{distanceMatrix}!at@{at}}
+\index{at@{at}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily float \& distance\+Matrix\+::at (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+At function for a cell inside the matrix, returns a reference to the cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & first node \\
+\hline
+{\em j} & second node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float\& cell contents 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a08e183cc9a422c5622f67d8668ca675f}\label{classdistance_matrix_a08e183cc9a422c5622f67d8668ca675f}} 
+\index{distanceMatrix@{distanceMatrix}!get@{get}}
+\index{get@{get}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily float distance\+Matrix\+::get (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+returns the value of a cell without any reference 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & first node \\
+\hline
+{\em j} & second node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float cell value 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a3d9a28bc8d155be1821444b704eba578}\label{classdistance_matrix_a3d9a28bc8d155be1821444b704eba578}} 
+\index{distanceMatrix@{distanceMatrix}!getMaxEdge@{getMaxEdge}}
+\index{getMaxEdge@{getMaxEdge}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getMaxEdge()}{getMaxEdge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode_solution}{node\+Solution}} distance\+Matrix\+::get\+Max\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets one pair of nodes from the list of nodes with an edge of maximum size. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classnode_solution}{node\+Solution}} pair of nodes 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_adfc7501136d3f42768a06c05ef9d1f54}\label{classdistance_matrix_adfc7501136d3f42768a06c05ef9d1f54}} 
+\index{distanceMatrix@{distanceMatrix}!getMd@{getMd}}
+\index{getMd@{getMd}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getMd()}{getMd()}}
+{\footnotesize\ttfamily float distance\+Matrix\+::get\+Md (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution }\end{DoxyParamCaption})}
+
+
+
+Get the mean dispersion for the given solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & given solution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float mean 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_ab3e29ab7089a1193fac5af5111475cc0}\label{classdistance_matrix_ab3e29ab7089a1193fac5af5111475cc0}} 
+\index{distanceMatrix@{distanceMatrix}!getNewMdAdd@{getNewMdAdd}}
+\index{getNewMdAdd@{getNewMdAdd}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getNewMdAdd()}{getNewMdAdd()}}
+{\footnotesize\ttfamily float distance\+Matrix\+::get\+New\+Md\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution,  }\item[{float}]{current\+Edge\+Sum,  }\item[{int}]{node }\end{DoxyParamCaption})}
+
+
+
+Gets the mean dispersion for the given solution if node was added to it, using the previously calculated sum of edges for the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & actual solution \\
+\hline
+{\em current\+Edge\+Sum} & sum of edges from the solution \\
+\hline
+{\em node} & node to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_aac9d05568b3999578e8cc69dec505b62}\label{classdistance_matrix_aac9d05568b3999578e8cc69dec505b62}} 
+\index{distanceMatrix@{distanceMatrix}!getNewMdDelete@{getNewMdDelete}}
+\index{getNewMdDelete@{getNewMdDelete}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getNewMdDelete()}{getNewMdDelete()}}
+{\footnotesize\ttfamily float distance\+Matrix\+::get\+New\+Md\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnode_solution}{node\+Solution}}}]{solution,  }\item[{float}]{current\+Edge\+Sum,  }\item[{int}]{node }\end{DoxyParamCaption})}
+
+
+
+Gets the mean dispersion for the given solution if node was deleted from it, using the previously calculated sum of edges for the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & actual solution \\
+\hline
+{\em current\+Edge\+Sum} & sum of edges from the solution \\
+\hline
+{\em node} & node to be deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_afc0e840ce963b1b6be0375b0faf74fc3}\label{classdistance_matrix_afc0e840ce963b1b6be0375b0faf74fc3}} 
+\index{distanceMatrix@{distanceMatrix}!getNodes@{getNodes}}
+\index{getNodes@{getNodes}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getNodes()}{getNodes()}}
+{\footnotesize\ttfamily int distance\+Matrix\+::get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the amount of nodes making the matrix. 
+
+\begin{DoxyReturn}{Returns}
+int number of nodes 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a5ca5b9d3aa6fd6cf568438836ebe0877}\label{classdistance_matrix_a5ca5b9d3aa6fd6cf568438836ebe0877}} 
+\index{distanceMatrix@{distanceMatrix}!getPosibleNodes@{getPosibleNodes}}
+\index{getPosibleNodes@{getPosibleNodes}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{getPosibleNodes()}{getPosibleNodes()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ distance\+Matrix\+::get\+Posible\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the list of nodes with any positive value. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a7e42ec219b35365a97db50f9307515d2}\label{classdistance_matrix_a7e42ec219b35365a97db50f9307515d2}} 
+\index{distanceMatrix@{distanceMatrix}!operator=@{operator=}}
+\index{operator=@{operator=}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} distance\+Matrix\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}}}]{copy }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em copy} & The matrix to be copied upon this$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classdistance_matrix}{distance\+Matrix}} this$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a3d73c4a579daaf20d27615b531a9c9ec}\label{classdistance_matrix_a3d73c4a579daaf20d27615b531a9c9ec}} 
+\index{distanceMatrix@{distanceMatrix}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ \& distance\+Matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}\mbox{]} operator, acts as at, but instead returns the vector of distances for a specific node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$\& 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_a582462f7885bb650829527aa65e7b241}\label{classdistance_matrix_a582462f7885bb650829527aa65e7b241}} 
+\index{distanceMatrix@{distanceMatrix}!print@{print}}
+\index{print@{print}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void distance\+Matrix\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method for printing the entire matrix. 
+
+
+
+Definition at line 37 of file distance-\/matrix.\+cpp.
+
+\mbox{\Hypertarget{classdistance_matrix_abbcfc3b22a536ce8325e4665a5d13bfe}\label{classdistance_matrix_abbcfc3b22a536ce8325e4665a5d13bfe}} 
+\index{distanceMatrix@{distanceMatrix}!set@{set}}
+\index{set@{set}!distanceMatrix@{distanceMatrix}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void distance\+Matrix\+::set (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the value of a cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & first node \\
+\hline
+{\em j} & second node \\
+\hline
+{\em value} & change value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file distance-\/matrix.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{distance-matrix_8hpp}{distance-\/matrix.\+hpp}}\item 
+src/\mbox{\hyperlink{distance-matrix_8cpp}{distance-\/matrix.\+cpp}}\end{DoxyCompactItemize}
